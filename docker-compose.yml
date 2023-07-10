@@ -1,0 +1,12 @@
+version: '2'
+services:
+  squid:
+    build: squid
+    ports:
+      - "3128:3128"
+  proxy-chain:
+    build: proxy-chain
+    links:
+      - squid
+    ports:
+      - "8080:8080"
